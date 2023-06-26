@@ -26,12 +26,11 @@ app.get('/users/', async (req, res) => {
         personData.firstName = tempNameArray.shift();
         personData.lastName = tempNameArray.shift();
         personData.geolocation = personData.address.geo;
+        delete personData.address.geo;
         personData.companyName = personData.company.name;
         personData.address = Object.values(personData.address).join(" ");
-        let remAttribs = [];
         delete personData.name;
         delete personData.company;
-        delete personData.address.geo;
         delete personData.username;
         delete personData.phone;
         delete personData.website;
